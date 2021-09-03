@@ -14,6 +14,7 @@ import java.util.Random;
  * Generate pseudo-random floating point values, with an approximately Gaussian
  * (normal) distribution.
  */
+@Deprecated
 public class RandomGaussian {
     double mean;
     double variance;
