@@ -9,6 +9,7 @@
 package at.tugraz.ist.ase.common;
 
 import lombok.Getter;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
@@ -21,12 +22,13 @@ import java.util.Random;
  * if desired, for when we run unit tests, which should be repeatable.
  */
 @Slf4j
-public final class RandomUtils {
+@UtilityClass
+public class RandomUtils {
 
     @Getter
-    private static long SEED = 141982;
+    private long SEED = 141982;
 
-    private static final Random random;
+    private final Random random;
 
     static {
         random = new Random(SEED);
@@ -34,30 +36,30 @@ public final class RandomUtils {
         log.info("Random object created with the seed {}", SEED);
     }
 
-    public static void setSeed(long seed) {
+    public void setSeed(long seed) {
         SEED = seed;
         random.setSeed(SEED);
 
         log.info("Random object has been reset with the seed {}", SEED);
     }
 
-    public static int getRandomInt(int bound) {
+    public int getRandomInt(int bound) {
         return random.nextInt(bound);
     }
 
-    public static int getRandomInt(int bound, int offset) {
+    public int getRandomInt(int bound, int offset) {
         return random.nextInt(bound) + offset;
     }
 
-    public static double getRandomDouble(double bound) {
+    public double getRandomDouble(double bound) {
         return random.nextDouble() * bound;
     }
 
-    public static double getRandomDouble(double bound, double offset) {
+    public double getRandomDouble(double bound, double offset) {
         return random.nextDouble() * bound + offset;
     }
 
-    public static boolean getRandomBoolean() {
+    public boolean getRandomBoolean() {
         return random.nextBoolean();
     }
 }
