@@ -32,7 +32,7 @@ public class IOUtils {
      * @throws FileNotFoundException throws an exception when couldn't find the required file in the resource of the program
      */
     public InputStream getInputStream(@NonNull ClassLoader classLoader, String file) throws IOException {
-        @Cleanup InputStream inputStream = classLoader.getResourceAsStream(file);
+        InputStream inputStream = classLoader.getResourceAsStream(file);
 
         if (inputStream == null) {
             throw new FileNotFoundException(file + " doesn't exist!");
