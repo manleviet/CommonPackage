@@ -10,8 +10,10 @@ package at.tugraz.ist.ase.common;
 
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 
 @UtilityClass
+@Slf4j
 public class LoggerUtils {
     @Getter
     public String tab = "";
@@ -24,5 +26,9 @@ public class LoggerUtils {
         if (tab.length() > 0) {
             tab = tab.substring(0, tab.length() - 1);
         }
+    }
+
+    public void logMethodInfoWithSession(String nameMethod, String sessionId, int timeout, String requestUri) {
+        log.debug("[{}] - sessionId: {}, timeout: {}, request: {}", nameMethod, sessionId, timeout, requestUri);
     }
 }

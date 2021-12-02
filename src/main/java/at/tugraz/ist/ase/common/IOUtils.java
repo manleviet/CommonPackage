@@ -17,6 +17,7 @@ import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -30,7 +31,7 @@ public class IOUtils {
      * @return an InputStream to the required file
      * @throws FileNotFoundException throws an exception when couldn't find the required file in the resource of the program
      */
-    public InputStream getInputStream(@NonNull ClassLoader classLoader, String file) throws FileNotFoundException {
+    public InputStream getInputStream(@NonNull ClassLoader classLoader, String file) throws IOException {
         @Cleanup InputStream inputStream = classLoader.getResourceAsStream(file);
 
         if (inputStream == null) {
