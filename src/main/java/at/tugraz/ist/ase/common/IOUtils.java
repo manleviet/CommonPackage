@@ -12,6 +12,7 @@ import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 
@@ -30,7 +31,7 @@ public class IOUtils {
      * @throws FileNotFoundException throws an exception when couldn't find the required file in the resource of the program
      */
     public InputStream getInputStream(@NonNull ClassLoader classLoader, String file) throws FileNotFoundException {
-        InputStream inputStream = classLoader.getResourceAsStream(file);
+        @Cleanup InputStream inputStream = classLoader.getResourceAsStream(file);
 
         if (inputStream == null) {
             throw new FileNotFoundException(file + " doesn't exist!");
