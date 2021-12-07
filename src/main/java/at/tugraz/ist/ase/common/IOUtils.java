@@ -16,11 +16,10 @@ import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @UtilityClass
 public class IOUtils {
@@ -44,5 +43,14 @@ public class IOUtils {
         CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
         return new CSVReaderBuilder(new InputStreamReader(inputStream, StandardCharsets.UTF_8))
                 .withCSVParser(csvParser).build();
+    }
+
+    public static void checkAndCreateFolder(String path) {
+        File folder = new File(path);
+
+        // check whether the fms folder does not exist
+        if (Files.notExists(Paths.get(path))) {
+            folder.mkdir(); // if not, create it
+        }
     }
 }
