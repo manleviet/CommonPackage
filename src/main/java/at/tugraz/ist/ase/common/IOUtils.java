@@ -21,6 +21,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 @UtilityClass
 public class IOUtils {
     /**
@@ -45,7 +47,9 @@ public class IOUtils {
                 .withCSVParser(csvParser).build();
     }
 
-    public void checkAndCreateFolder(String path) {
+    public void checkAndCreateFolder(@NonNull String path) {
+        checkArgument(!path.isEmpty(), "Path is empty!");
+
         File folder = new File(path);
 
         // check whether the fms folder does not exist
