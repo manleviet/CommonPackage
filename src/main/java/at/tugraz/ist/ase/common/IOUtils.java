@@ -45,7 +45,7 @@ public class IOUtils {
                 .withCSVParser(csvParser).build();
     }
 
-    public static void checkAndCreateFolder(String path) {
+    public void checkAndCreateFolder(String path) {
         File folder = new File(path);
 
         // check whether the fms folder does not exist
