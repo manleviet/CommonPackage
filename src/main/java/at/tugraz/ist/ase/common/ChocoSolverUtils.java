@@ -27,6 +27,6 @@ public class ChocoSolverUtils {
                 return v;
             }
         }
-        return null;
+        throw new IllegalArgumentException("No variable with name " + name + " exists");
     }
 }
