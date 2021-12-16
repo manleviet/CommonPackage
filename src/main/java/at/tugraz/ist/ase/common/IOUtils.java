@@ -8,6 +8,7 @@
 
 package at.tugraz.ist.ase.common;
 
+import at.tugraz.ist.ase.csp2choco.CSP2ChocoTranslator;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -15,6 +16,7 @@ import com.opencsv.CSVReaderBuilder;
 import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
+import org.chocosolver.solver.Model;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -56,5 +58,11 @@ public class IOUtils {
         if (Files.notExists(Paths.get(path))) {
             folder.mkdir(); // if not, create it
         }
+    }
+
+    public void loadConstraints(InputStream inputFile, Model model) throws IOException {
+        CSP2ChocoTranslator translator = new CSP2ChocoTranslator(model);
+
+        translator.translate(inputFile); // translate the input file into a Model with constraints
     }
 }
