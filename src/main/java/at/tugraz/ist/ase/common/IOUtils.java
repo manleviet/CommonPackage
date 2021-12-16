@@ -59,10 +59,4 @@ public class IOUtils {
             folder.mkdir(); // if not, create it
         }
     }
-
-    public void loadConstraints(InputStream inputFile, Model model) throws IOException {
-        CSP2ChocoTranslator translator = new CSP2ChocoTranslator(model);
-
-        translator.translate(inputFile); // translate the input file into a Model with constraints
-    }
 }
