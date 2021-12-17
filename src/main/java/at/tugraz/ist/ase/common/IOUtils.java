@@ -8,15 +8,12 @@
 
 package at.tugraz.ist.ase.common;
 
-import at.tugraz.ist.ase.csp2choco.CSP2ChocoTranslator;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
-import org.chocosolver.solver.Model;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
