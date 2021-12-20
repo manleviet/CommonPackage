@@ -19,16 +19,16 @@ public class LoggerUtils {
     public String tab = "";
 
     public void indent() {
-        tab += "\t";
+        tab += "   ";
     }
 
     public void outdent() {
         if (tab.length() > 0) {
-            tab = tab.substring(0, tab.length() - 1);
+            tab = tab.substring(0, tab.length() - 3);
         }
     }
 
     public void logMethodInfoWithSession(String nameMethod, String sessionId, int timeout, String requestUri) {
-        log.debug("[{}] - sessionId: {}, timeout: {}, request: {}", nameMethod, sessionId, timeout, requestUri);
+        log.debug("{}[method={}] - sessionId={}, timeout={}, request={}", tab, nameMethod, sessionId, timeout, requestUri);
     }
 }

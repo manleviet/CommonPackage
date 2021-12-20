@@ -33,14 +33,14 @@ public class RandomUtils {
     static {
         random = new Random(SEED);
 
-        log.debug("Random object created with the seed {}", SEED);
+        log.trace("Created a Random object [seed={}]", SEED);
     }
 
     public void setSeed(long seed) {
         SEED = seed;
         random.setSeed(SEED);
 
-        log.debug("Random object has been reset with the seed {}", SEED);
+        log.debug("Reset the Random object with new seed [seed={}]", SEED);
     }
 
     public int getRandomInt(int bound) {

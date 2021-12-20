@@ -39,8 +39,7 @@ public class ChocoSolverUtils {
      *
      * @param model - a Choco model
      */
-    // TODO: correct
-    public void printConstraints(Model model) {
+    public void printConstraintsWithNoFormat(Model model) {
         List<Constraint> ac = Arrays.asList(model.getCstrs());
         ac.forEach(System.out::println);
     }
