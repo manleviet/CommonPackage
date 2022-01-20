@@ -1,7 +1,7 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2021
+ * Copyright (c) 2021-2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
@@ -33,14 +33,14 @@ public class RandomUtils {
     static {
         random = new Random(SEED);
 
-        log.trace("Created a Random object [seed={}]", SEED);
+        log.trace("{}Created a Random object [seed={}]", LoggerUtils.tab, SEED);
     }
 
     public void setSeed(long seed) {
         SEED = seed;
         random.setSeed(SEED);
 
-        log.debug("Reset the Random object with new seed [seed={}]", SEED);
+        log.debug("{}Reset the Random object with new seed [seed={}]", LoggerUtils.tab, SEED);
     }
 
     public int getRandomInt(int bound) {
