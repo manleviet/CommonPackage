@@ -8,7 +8,7 @@
 
 package at.tugraz.ist.ase.common;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
