@@ -1,7 +1,7 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2021
+ * Copyright (c) 2021-2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
@@ -9,6 +9,7 @@
 package at.tugraz.ist.ase.common;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +29,7 @@ public class LoggerUtils {
         }
     }
 
-    public void logMethodInfoWithSession(String nameMethod, String sessionId, int timeout, String requestUri) {
+    public void logMethodInfoWithSession(@NonNull String nameMethod, @NonNull String sessionId, int timeout, @NonNull String requestUri) {
         log.debug("{}[method={}] - sessionId={}, timeout={}, request={}", tab, nameMethod, sessionId, timeout, requestUri);
     }
 }

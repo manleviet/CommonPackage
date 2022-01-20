@@ -1,13 +1,14 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2021
+ * Copyright (c) 2021-2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
 
 package at.tugraz.ist.ase.common;
 
+import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.constraints.Constraint;
@@ -22,10 +23,11 @@ public class ChocoSolverUtils {
     /**
      * Get a variable with the given name.
      * @param model a Choco model
-     * @param name the name of the variable
-     * @return a {@link Variable} with the given name, or null if no such variable exists
+     * @param name a variable's name
+     * @return a {@link Variable} with the given name, or
+     * @throws IllegalArgumentException if no variable with the given name exists
      */
-    public Variable getVariable(Model model, String name) {
+    public Variable getVariable(@NonNull Model model, @NonNull String name) {
         for (Variable v : model.getVars()) {
             if (v.getName().equals(name)) {
                 return v;
@@ -35,11 +37,10 @@ public class ChocoSolverUtils {
     }
 
     /**
-     * Print all constraints of a Choco model to the console
-     *
+     * Print all constraints of a Choco model to the console.
      * @param model - a Choco model
      */
-    public void printConstraintsWithNoFormat(Model model) {
+    public void printConstraintsWithoutFormat(@NonNull Model model) {
         List<Constraint> ac = Arrays.asList(model.getCstrs());
         ac.forEach(System.out::println);
     }

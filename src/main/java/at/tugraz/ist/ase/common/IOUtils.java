@@ -1,7 +1,7 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2021
+ * Copyright (c) 2021-2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
@@ -31,7 +31,7 @@ public class IOUtils {
      * @return an InputStream to the required file
      * @throws FileNotFoundException throws an exception when couldn't find the required file in the resource of the program
      */
-    public InputStream getInputStream(@NonNull ClassLoader classLoader, String file) throws IOException {
+    public InputStream getInputStream(@NonNull ClassLoader classLoader, @NonNull String file) throws IOException {
         InputStream inputStream = classLoader.getResourceAsStream(file);
 
         if (inputStream == null) {
