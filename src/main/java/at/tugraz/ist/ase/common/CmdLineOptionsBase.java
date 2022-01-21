@@ -15,6 +15,8 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
+import static com.google.common.base.Preconditions.checkState;
+
 @Slf4j
 public class CmdLineOptionsBase {
     @Getter
@@ -34,9 +36,12 @@ public class CmdLineOptionsBase {
         this.programTitle = programTitle;
         this.subtitle = subtitle;
         this.usage = usage;
+        this.parser = null;
     }
 
     public void parseArgument(@NonNull String[] args) {
+        checkState(parser != null, "CmdLineParser not initialized");
+
         if (args.length < 1) {
             printUsage();
             System.exit(-1);
@@ -51,6 +56,8 @@ public class CmdLineOptionsBase {
     }
 
     public void printUsage() {
+        checkState(parser != null, "CmdLineParser not initialized");
+
         if (banner != null) {
             System.out.println(banner);
         }
