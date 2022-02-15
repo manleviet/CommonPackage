@@ -12,3 +12,4 @@ buildNumber.properties
 /.idea/
 /CommonPackage.iml
 /logs.log
+.DS_store
