@@ -8,11 +8,11 @@
 
 package at.tugraz.ist.ase.common;
 
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 @Slf4j
@@ -40,7 +40,7 @@ public class MailService {
     public void sendMail(String from, String to, String subject, String body) {
         //create the Session object
         Session session = Session.getInstance(props,
-            new javax.mail.Authenticator() {
+            new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(username, password);
                 }
