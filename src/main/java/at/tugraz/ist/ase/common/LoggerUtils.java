@@ -29,7 +29,15 @@ public class LoggerUtils {
         }
     }
 
-    public void logMethodInfoWithSession(@NonNull String nameMethod, @NonNull String sessionId, int timeout, @NonNull String requestUri) {
-        log.debug("{}[method={}] - sessionId={}, timeout={}, request={}", tab, nameMethod, sessionId, timeout, requestUri);
+    public void logMethodInfoWithSession(@NonNull String nameMethod, @NonNull String sessionId, int timeout, @NonNull String requestUri, @NonNull String level) {
+        String logMessage = "{}[method={}, sessionId={}, timeout={}, request={}]";
+        switch (level) {
+            case "DEBUG" -> log.debug(logMessage, tab, nameMethod, sessionId, timeout, requestUri);
+            case "INFO" -> log.info(logMessage, tab, nameMethod, sessionId, timeout, requestUri);
+            case "WARN" -> log.warn(logMessage, tab, nameMethod, sessionId, timeout, requestUri);
+            case "ERROR" -> log.error(logMessage, tab, nameMethod, sessionId, timeout, requestUri);
+            default -> log.trace(logMessage, tab, nameMethod, sessionId, timeout, requestUri);
+        }
+
     }
 }

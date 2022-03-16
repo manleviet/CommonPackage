@@ -1,7 +1,7 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2022-2022
+ * Copyright (c) 2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
@@ -23,7 +23,7 @@ public class CmdLineOptionsBase {
     @Option(name = "-h",
             aliases="--help",
             usage = "Prints usage info.")
-    private boolean help = false;
+    private final boolean help = false;
 
     protected CmdLineParser parser;
     private final String banner;

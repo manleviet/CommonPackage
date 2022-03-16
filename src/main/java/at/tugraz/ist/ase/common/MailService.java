@@ -1,7 +1,7 @@
 /*
  * CommonPackage
  *
- * Copyright (c) 2022-2022
+ * Copyright (c) 2022
  *
  * @author: Viet-Man Le (vietman.le@ist.tugraz.at)
  */
@@ -40,11 +40,11 @@ public class MailService {
     public void sendMail(String from, String to, String subject, String body) {
         //create the Session object
         Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
 
         try {
             Message message = new MimeMessage(session);
