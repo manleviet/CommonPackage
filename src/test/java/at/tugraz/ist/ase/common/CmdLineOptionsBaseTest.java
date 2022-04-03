@@ -63,7 +63,7 @@ class CmdLineOptionsBaseTest {
     }
 
     @Test
-    void shouldHaveOtherAgruments() {
+    void shouldHaveOtherArguments() {
         String programTitle = "CRM Recommendation";
         String usage = "Usage: java -jar CRMRec.jar [options]]";
         String[] args = new String[]{"-i", "./data/interactions.csv", "-p", "conf.txt", "-u", "2"};
