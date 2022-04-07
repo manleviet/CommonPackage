@@ -56,6 +56,14 @@ public class CmdLineOptionsBase {
     }
 
     public void printUsage() {
+        printWelcome();
+
+        System.out.println(usage);
+        System.out.println("Options:");
+        parser.printUsage(System.out);
+    }
+
+    public void printWelcome() {
         checkState(parser != null, "CmdLineParser not initialized");
 
         if (banner != null) {
@@ -65,8 +73,5 @@ public class CmdLineOptionsBase {
         if (subtitle != null) {
             System.out.println(subtitle);
         }
-        System.out.println(usage);
-        System.out.println("Options:");
-        parser.printUsage(System.out);
     }
 }
