@@ -49,7 +49,7 @@ class CmdLineOptionsBaseTest {
     @Test
     void shouldPrintUsage() {
         String programTitle = "CRM Recommendation";
-        String usage = "Usage: java -jar CRMRec.jar [options]]";
+        String usage = "Usage: java -jar CRMRec.jar [options]";
         String[] args = new String[]{"-h"};
 
         CmdLineOptions cmdLineOptions = new CmdLineOptions(null, programTitle, null, usage);
@@ -65,7 +65,7 @@ class CmdLineOptionsBaseTest {
     @Test
     void shouldHaveOtherArguments() {
         String programTitle = "CRM Recommendation";
-        String usage = "Usage: java -jar CRMRec.jar [options]]";
+        String usage = "Usage: java -jar CRMRec.jar [options]";
         String[] args = new String[]{"-i", "./data/interactions.csv", "-p", "conf.txt", "-u", "2"};
 
         CmdLineOptions cmdLineOptions = new CmdLineOptions(null, programTitle, null, usage);
